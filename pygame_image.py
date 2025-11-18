@@ -28,16 +28,25 @@ def main():
 
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0,-1))
-        if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0,1))
-        if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1,0))
-        if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((1,0))
+            up = -1
         else:
-            kk_rct.move_ip((-1,0))
-        
+            up = 0
+        if key_lst[pg.K_DOWN]:
+            
+            down = 1
+        else:
+            down = 0
+
+        if key_lst[pg.K_LEFT]:
+            left = -1
+        else:
+            left = 0
+        if key_lst[pg.K_RIGHT]:
+            right = 1
+        else:
+            right = -1
+
+        kk_rct.move_ip((right + left ,up + down))
 
         pg.display.update()
         tmr+=1
